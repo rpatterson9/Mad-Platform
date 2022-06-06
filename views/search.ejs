@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/header.ejs') %>
+<body>
+
+<%- include('./includes/navbar.ejs') %>
+
+<!-- Hero -->
+<section class="hero-search">
+  <div class="container">
+    <div class="row">
+      <div class="hero-text col-12 text-center">
+        <h1>MAD TOKEN</h1>
+        <p>A Token for Change</p>
+        <div class="form-group mx-auto">
+          <input type="text" class="form-control" id="search-search-page" value="<%= query %>" placeholder="Search Charities">
+          <button type="button" onclick="searchClick('search-page')" class="btn btn-primary btn-search">Search</button>
+        </div>
+        <!-- <a class="btn btn-primary btn-start mx-auto" href="#donate">start donate</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Hero END -->
+
+<!-- Campaign -->
+<section class="campaign">
+  <div class="container">
+    <div class="section-campaign" style="margin-top: 60px;">
+      <h2 class="section-title">Result Charity Partners</h2>
+      <% if (charities.length <= 0) { %>
+        <h4 style="color: #7A183B" align="center">looks like the item you are looking for doesn't exist</h4>
+        <% } %>
+      <div class="row-campaign row all-campaign justify-content-center">
+        <% for (let charity of charities) { %>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card-campaign">
+            <img src="data:image/<%=charity.image.contentType%>;base64,
+             <%= (!charity.image.data) ? '' : charity.image.data.toString('base64') %>" alt="logo campaign">
+            <h4><%= charity.name %></h4>
+            <p class="d-none d-sm-block">
+              <%= charity.description.substring(0, 250) %>
+            </p>
+            <p class="d-block d-sm-none">
+              <%= charity.description.substring(0, 100) %>..
+            </p>
+            <a href="/details/<%= charity.id %>" class="btn btn-primary btn-donate">Donate Now</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Campaign END -->
+
+<%- include('./includes/footer.ejs') %>
+
+<%- include('./includes/scripts.ejs') %>
+
+</body>
+</html>

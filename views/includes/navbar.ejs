@@ -1,0 +1,60 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+        <a class="navbar-brand" href="https://madtoken.org">
+            <img width="15%" height="15%" src="/assets/logo.png" alt="MAD Token logo">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="btn btn-primary btn-connect" onclick="Wallet.connect()">
+                            connect
+                        </div>
+                    </a>
+                    <button class="btn btn-wallet dropdown-toggle d-none dropdown-address dropdown-address-lg" type="button" data-toggle="modal" data-target="#modalWallet">
+                        <span class="your-address">your address</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <a class="nav-link d-lg-none" href="#">
+            <div class="btn btn-primary btn-connect" onclick="Wallet.connect()">
+                connect
+            </div>
+        </a>
+        <button class="btn btn-wallet dropdown-toggle d-none d-lg-none dropdown-address" type="button" data-toggle="modal" data-target="#modalWallet">
+            <span class="your-address">your address</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade modal-wallet" id="modalWallet" tabindex="-1" aria-labelledby="modalWalletLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <i class="fas fa-wallet"></i>
+            <h5 class="modal-title" id="exampleModalLabel">Your Wallet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="item">
+                <p>Address</p>
+                <span class="your-address">your address</span>
+            </div>
+            <div class="item">
+                <p>Balance</p>
+                <span class="your-balance">your balance</span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-logout">Logout</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Navbar END -->

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/header.ejs') %>
+<body>
+
+<%- include('./includes/navbar.ejs') %>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="hero-text col-12 text-center">
+       
+        <img src="/assets/image0.jpeg" alt="MAD TOKEN"width="85%" >
+  <br>
+  <br>
+
+        <p style="color:#D60B51" >A Token for Change</p>
+        <div class="form-group mx-auto">
+          <input type="text" class="form-control" id="search-main-page" placeholder="Search Charities">
+          <button type="button" onclick="searchClick('main-page')" class="btn btn-primary btn-search">Search</button>
+        </div>
+        <p class="hero-desc">
+          By using our platform and making a donation you acknowledge that you have read and accept our Terms of Use. Tax deductions can only be claimed for monies donated by individuals donating to charities registered in their tax-resident country but our helpful country search filter makes it easy for you to find charities in your tax-resident country. MAD Token takes no responsibility for the eligibility of any donations qualifying for tax deductibility and you should consult your tax advisor as to the amount of your donation that is tax deductible or eligible for tax recognition, if any.
+        </p>
+        <!-- <a class="btn btn-primary btn-start mx-auto" href="#donate">start donate</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Hero END -->
+
+<!-- Campaign -->
+<section class="campaign">
+  <div class="container">
+
+    <div class="section-campaign d-none d-sm-block">
+      <h2 class="section-title">Featured Fundraisers</h2>
+      <div class="row-campaign" id="featured-campaign">
+        <% for (let featured of featureds) { %>
+        <div class="card-campaign">
+          <img src="data:image/<%=featured.image.contentType%>;base64,
+             <%= (!featured.image.data) ? '' : featured.image.data.toString('base64') %>" alt="logo campaign">
+          <h4><%= featured.name %></h4>
+          <p class="d-none d-sm-block">
+            <%= featured.description.substring(0, 250) %>
+          </p>
+          <p class="d-block d-sm-none">
+            <%= featured.description.substring(0, 100) %>..
+          </p>
+          <a href="/details/<%- featured.id %>" class="btn btn-primary btn-donate">Donate Now</a>
+        </div>
+          <% } %>
+      </div>
+    </div>
+
+
+    <!-- mobile -->
+    <div class="section-campaign d-block d-sm-none">
+      <h2 class="section-title">Featured Fundraisers</h2>
+      <div class="row-campaign owl-carousel owl-theme" id="featured-campaign-mobile">
+        <% for (let featured of featureds) { %>
+        <div class="card-campaign">
+          <img src="data:image/<%=featured.image.contentType%>;base64,
+             <%= (!featured.image.data) ? '' : featured.image.data.toString('base64') %>" alt="logo campaign">
+          <h4><%= featured.name %></h4>
+          <p class="d-none d-sm-block">
+            <%= featured.description.substring(0, 250) %>
+          </p>
+          <p class="d-block d-sm-none">
+            <%= featured.description.substring(0, 100) %>..
+          </p>
+          <a href="/details/<%- featured.id %>" class="btn btn-primary btn-donate">Donate Now</a>
+        </div>
+          <% } %>
+      </div>
+    </div>
+
+    <div class="section-campaign d-none d-sm-block" style="margin-top: 80px;">
+      <h2 class="section-title">Recent Charity Partners</h2>
+      <div class="row-campaign" id="latest-campaign">
+        <% for (let lat of latest) { %>
+          <div class="card-campaign">
+            <img src="data:image/<%=lat.image.contentType%>;base64,
+             <%= (!lat.image.data) ? '' : lat.image.data.toString('base64') %>" alt="logo campaign">
+            <h4><%= lat.name %></h4>
+            <p class="d-none d-sm-block">
+              <%= lat.description.substring(0, 250) %>
+            </p>
+            <p class="d-block d-sm-none">
+              <%= lat.description.substring(0, 100) %>..
+            </p>
+            <a href="/details/<%= lat.id %>" class="btn btn-primary btn-donate">Donate Now</a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- mobile -->
+
+    <div class="section-campaign d-block d-sm-none" style="margin-top: 80px;">
+      <h2 class="section-title">Recent Charity Partners</h2>
+      <div class="row-campaign owl-carousel owl-theme" id="latest-campaign-mobile">
+        <% for (let lat of latest) { %>
+          <div class="card-campaign">
+            <img src="data:image/<%=lat.image.contentType%>;base64,
+             <%= (!lat.image.data) ? '' : lat.image.data.toString('base64') %>" alt="logo campaign">
+            <h4><%= lat.name %></h4>
+            <p class="d-none d-sm-block">
+              <%= lat.description.substring(0, 250) %>
+            </p>
+            <p class="d-block d-sm-none">
+              <%= lat.description.substring(0, 100) %>..
+            </p>
+            <a href="/details/<%= lat.id %>" class="btn btn-primary btn-donate">Donate Now</a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="section-campaign" style="margin-top: 80px;">
+      <h2 class="section-title">All Charity Partners</h2>
+      <div class="row-campaign row all-campaign justify-content-center">
+        <% for (let charity of charities) { %>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card-campaign">
+            <img src="data:image/<%=charity.image.contentType%>;base64,
+             <%= (!charity.image.data) ? '' : charity.image.data.toString('base64') %>" alt="logo campaign">
+            <h4><%= charity.name %></h4>
+            <p class="d-none d-sm-block">
+              <%= charity.description.substring(0, 250) %>
+            </p>
+            <p class="d-block d-sm-none">
+              <%= charity.description.substring(0, 100) %>..
+            </p>
+            <a href="/details/<%= charity.id %>" class="btn btn-primary btn-donate">Donate Now</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Campaign END -->
+
+<%- include('./includes/footer.ejs') %>
+
+<%- include('./includes/scripts.ejs') %>
+
+</body>
+</html>

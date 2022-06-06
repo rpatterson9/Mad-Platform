@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="/assets/logo.png">
+
+    <%- include('./includes/header.ejs') %>
+</head>
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <%- include('./includes/navbar.ejs') %>
+            <%- include('./includes/sidebar.ejs') %>
+
+            <!-- Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Dashboard</h1>
+                        <div class="section-header-breadcrumb">
+                            <div class="breadcrumb-item">Dashboard</div>
+                        </div>
+                    </div>
+
+                    <div class="section-body">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary">
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                    <h4>Total Admin</h4>
+                                    </div>
+                                    <div class="card-body">
+                                    10
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                <div class="card-icon bg-danger">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                    <h4>News</h4>
+                                    </div>
+                                    <div class="card-body">
+                                    42
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                <div class="card-icon bg-warning">
+                                    <i class="far fa-file"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                    <h4>Reports</h4>
+                                    </div>
+                                    <div class="card-body">
+                                    1,201
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                <div class="card-icon bg-success">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                    <h4>Online Users</h4>
+                                    </div>
+                                    <div class="card-body">
+                                    47
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                      <h4>This Week Stats</h4>
+                                      <div class="card-header-action">
+                                        <div class="dropdown">
+                                          <a href="#" class="dropdown-toggle btn btn-primary btn--primary" data-toggle="dropdown">Filter</a>
+                                          <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Electronic</a>
+                                            <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> T-shirt</a>
+                                            <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Hat</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item">View All</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="card-body">
+                                      <div class="summary">
+                                        <div class="summary-info">
+                                          <h4>$1,053</h4>
+                                          <div class="text-muted">Sold 3 items on 2 customers</div>
+                                          <div class="d-block mt-2">
+                                            <a href="#">View All</a>
+                                          </div>
+                                        </div>
+                                        <div class="summary-item">
+                                          <h6>Item List <span class="text-muted">(3 Items)</span></h6>
+                                          <ul class="list-unstyled list-unstyled-border">
+                                            <li class="media">
+                                              <a href="#">
+                                                <!-- <img class="mr-3 rounded" width="50" src="../assets/img/products/product-1-50.png" alt="product"> -->
+                                              </a>
+                                              <div class="media-body">
+                                                <div class="media-right">$405</div>
+                                                <div class="media-title"><a href="#">PlayStation 9</a></div>
+                                                <div class="text-muted text-small">by <a href="#">Hasan Basri</a> <div class="bullet"></div> Sunday</div>
+                                              </div>
+                                            </li>
+                                            <li class="media">
+                                              <a href="#">
+                                                <!-- <img class="mr-3 rounded" width="50" src="../assets/img/products/product-2-50.png" alt="product"> -->
+                                              </a>
+                                              <div class="media-body">
+                                                <div class="media-right">$499</div>
+                                                <div class="media-title"><a href="#">RocketZ</a></div>
+                                                <div class="text-muted text-small">by <a href="#">Hasan Basri</a> <div class="bullet"></div> Sunday
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li class="media">
+                                              <a href="#">
+                                                <!-- <img class="mr-3 rounded" width="50" src="../assets/img/products/product-3-50.png" alt="product"> -->
+                                              </a>
+                                              <div class="media-body">
+                                                <div class="media-right">$149</div>
+                                                <div class="media-title"><a href="#">Xiaomay Readme 4.0</a></div>
+                                                <div class="text-muted text-small">by <a href="#">Kusnaedi</a> <div class="bullet"></div> Tuesday
+                                                </div>
+                                              </div>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <%- include('./includes/footer.ejs') %>
+        </div>
+    </div>
+
+
+    <%- include('./includes/scripts.ejs') %>
+</body>
+</html>

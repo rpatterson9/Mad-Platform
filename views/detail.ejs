@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/header.ejs') %>
+
+    <body>
+
+        <%- include('./includes/navbar.ejs') %>
+
+            <section class="details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h1>Charity Details</h1>
+                            <img class="w-100" src="data:image/<%=charity.image.contentType%>;base64,
+                <%= (!charity.image.data) ? '' : charity.image.data.toString('base64') %>" width="350vh"
+                                alt="logo campaign">
+                            <h2>
+                                <%= charity.name %>
+                            </h2>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex align-items-center my-4 my-md-0">
+                            <img class="w-100" src="/assets/hero-banner.svg" alt="banner">
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <%= charity.description %>
+
+                                <div class="btn btn-address-charity">
+                                    <span class="title">Address</span>
+                                    <input class="address" id="charity-address" value="<%= charity.address %>"
+                                        onchange="this.value = this.value.replace(/,/g, '.')" readonly>
+                                    <span class="copy btn-copy-address-charity"
+                                        data-clipboard-target="#charity-address">
+                                        <i class="far fa-copy"></i>
+                                    </span>
+                                    <span class="link">
+                                        <a target="_blank" href="https://bscscan.com/address/<%= charity.address %>">
+                                            <i class="far fa-external-link"></i>
+                                        </a>
+                                    </span>
+                                </div>
+
+                                <p class="mt-3">
+                                    ID: <span id="charity_id">
+                                        <%= charity.id %>
+                                    </span>
+                                </p>
+
+                                <div>
+                                    <br>
+                                    <a class="btn btn-primary" href="https://www.binance.org/en/bridge"
+                                        role="button">Convert ETH to BSC-ETH</a>
+                                </div>
+                                <div>
+                                    <br>
+                                    <br>
+
+                                    <a class="btn btn-primary" href="/" role="button">Browse Other Charities</a>
+                                    <br>
+                                </div>
+
+                                <p class="agreement">
+                                    By making your donation you acknowledge that you have read and accept our <a
+                                        target="_blank" href="https://madtoken.org/">Terms of Use.</a>
+                                </p>
+                        </div>
+
+
+                        <div class="col-12 col-lg-5 offset-lg-1">
+                            <div class="payment">
+                                <h3>Select Donation (Binance Smart Chain)</h3>
+                                <!-- MAD  -->
+                                <div class="payment-method" data-type="mad">
+                                    <div class="d-flex align-items-center">
+                                        <img width="12%" height="12%" src="/assets/mad-ticker.png" alt="icon">
+                                        <p>MAD</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+                                <!-- BNB -->
+                                <div class="payment-method" data-type="bnb">
+                                    <div class="d-flex align-items-center">
+                                        <img src="/assets/ic-bnb.svg" alt="icon">
+                                        <p>BNB</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+
+                                <!-- BUSD -->
+                                <div class="payment-method" data-type="busd">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.png"
+                                            width="40" height="40" alt="icon">
+                                        <p>BUSD</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+
+
+                        <!-- USDC  -->
+
+                        <div class="payment-method" data-type="usdc">
+                            <div class="d-flex align-items-center">
+                                <img src="/assets/usdc.png" height="40px" width="40px"" alt=" icon">
+                                <p>USDC (BinancePegged)</p>
+                            </div>
+                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                        </div>
+
+
+                                <!-- ETH -->
+                                <div class="payment-method" data-type="eth">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://pancakeswap.finance/images/tokens/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png"
+                                            width="40" height="40" alt="icon">
+                                        <p>ETH (BinancePegged)</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+
+                                <!-- BTCB -->
+                                <div class="payment-method" data-type="btcb">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://pancakeswap.finance/images/tokens/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c.png"
+                                            width="40" height="40" alt="icon">
+                                        <p>BTCB</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+
+
+                                <!-- DAI -->
+                                <div class="payment-method" data-type="dai">
+                                    <div class="d-flex align-items-center">
+                                        <img src="/assets/dai.png" height="44px" width="44px"" alt=" icon">
+                                        <p>DAI</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="payment-other" data-type="cunt">
+                                <div class="d-flex align-items-center" style="margin-top: 60px; margin-left: 10px" ;>
+                                    <!-- <img width="12%" height="12%" src="/assets/misc12.png" alt="icon"> -->
+                                    <a class="btn  btn-primary" href="#others" role="button">Other Donation Options
+                                    </a>
+                                </div>
+                                <!-- <img src="/assets/ic-chevron-right.svg" alt="icon"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal modal-payment fade" id="modalPaymentBNB" tabindex="-1"
+                aria-labelledby="modalPaymentBNBLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalPaymentBNBLabel"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="container-balance">
+                                <h6 class="balance balance-bnb">Your Balance : <span id="amount-balance-bnb"
+                                        class="your-balance-bnb"></span> BNB</h6>
+                                <h6 class="balance balance-token">Your Balance : <span id="amount-balance-token"
+                                        class="your-balance-token"></span> <span
+                                        class="your-symbol-token text-dark"></span></h6>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" id="donor_name" class="form-control"
+                                            placeholder="Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="email" id="donor_email" class="form-control"
+                                            placeholder="Email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-amount">
+                                <div class="d-flex align-items-center justify-content-between flex-wrap w-100">
+                                    <div>
+                                        <h6>Amount</h6>
+                                        <input class="amount" value="0" type="text" id="amountRange" />
+                                    </div>
+                                    <div class="max-amount-wrapper">
+                                        <div class="btn btn-max-amount">Max Amount</div>
+                                        <h6 id="usd-price-conversion" class="usd-price-conversion">$0</h6>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="amount-count">
+                                        <div class="btn btn-outline-primary btn-minus-amount mr-2 mr-lg-4">
+                                            <i class="far fa-minus"></i>
+                                        </div>
+                                        <div id='meter'>
+                                            <div id='progress'></div>
+                                        </div>
+                                        <div class="btn btn-outline-primary btn-plus-amount ml-2 ml-lg-4">
+                                            <i class="far fa-plus"></i>
+                                        </div>
+                                        <p><span id="percentage-amount" class="ml-2">25</span>%</p>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-4">
+                                        <p>BUSD_MAD price :</p>
+                                        <span class="btn-white BUSD_MAD"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-4">
+                                        <p>MAD_BUSD price :</p>
+                                        <span class="btn-white MAD_BUSD"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-4">
+                                        <p>BNB_MAD price :</p>
+                                        <span class="btn-white BNB_MAD"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-4">
+                                        <p>MAD_BNB price :</p>
+                                        <span class="btn-white MAD_BNB"></span>
+                                    </div>
+
+                                    <!-- <div class="col-12 col-md-6 mb-4">
+                                        <p>ETH_MAD price :</p>
+                                        <span class="btn-white ETH_MAD"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-4">
+                                        <p>MAD_ETH price :</p>
+                                        <span class="btn-white MAD_ETH"></span>
+                                    </div> -->
+                                </div>
+                                <p class="notes-token">
+                                    Every token will be swapped into MAD then donated
+                                </p>
+                            </div>
+
+                            <button class="btn btn-primary btn-donate-modal btn-block">Donate Now</button>
+                            <button id="button-click-approve"
+                                class="btn btn-primary btn-block btn-approve-modal">Approve</button>
+                            <div class="accordion accordion-history" id="accordionExample">
+                                <div id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link-primary" type="button" data-toggle="collapse"
+                                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            History of your transaction
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <ul id="donate-history">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('./includes/footer.ejs') %>
+                <div id="others" style="margin-top: 200px; margin-bottom: 200px">
+                    <div class="container">
+                        <section class="details">
+                            <div class="row">
+                                <div class="col-7"></div>
+
+
+
+
+
+                                <div class="col-12 col-lg-5 offset-lg-7">
+                                    <div class="payment">
+                                        <img src="data:image/<%=charity.image.contentType%>;base64,
+                                        <%= (!charity.image.data) ? '' : charity.image.data.toString('base64') %>"
+                                            width="250vh" alt="logo campaign">
+                                        <br>
+                                        <h3>Alternative Donation Options</h3>
+                                        <br>
+
+
+                     <!-- ElonGate -->
+                                        <div class="payment-method" data-type="elon">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/elon.png" height="44px" width="44px"" alt=" icon">
+                                                <p>ELONGATE</p>
+                                            </div>
+                                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                        </div>
+
+                                        <!-- Shiba  -->
+                                        <div class="payment-method" data-type="shiba">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/shiba.png" alt="icon">
+                                                <p>SHIBA</p>
+                                            </div>
+                                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                        </div>
+
+                      <!-- SafeMoon -->
+
+                                        <div class="payment-method" data-type="safemoon">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/safemoon.png" height="44px" width="44px"" alt=" icon">
+                                                <p>SafeMoon</p>
+                                            </div>
+                                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                        </div>
+
+                       <!-- CAKE  -->
+                                        <div class="payment-method" data-type="cake">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/cake.png" height="44px" width="44px"" alt=" icon">
+                                                <p>Cake</p>
+                                            </div>
+                                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                        </div>
+
+
+                      <!-- MBOx -->
+                                        <div class="payment-method" data-type="mobox">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/mobox.png" height="44px" width="44px"" alt=" icon">
+                                                <p>Mobox</p>
+                                            </div>
+                                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                        </div>
+
+
+                       <!-- LINK -->
+                                        <div class="payment-method" data-type="link">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/link.png" height="44px" width="44px"" alt=" icon">
+                                                <p>ChainLink</p>
+                                            </div>
+                                            <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                        </div>
+
+
+
+                     <!-- FREE -->
+                                       <div class="payment-method" data-type="free">
+                                    <div class="d-flex align-items-center">
+                                        <img src="/assets/free.png" height="44px" width="44px"" alt=" icon">
+                                        <p>Free</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+
+
+                                        <!-- <div class="payment-method" data-type="free">
+                                    <div class="d-flex align-items-center">
+                                        <img src="/assets/free.png" alt="icon">
+                                        <p>Free</p>
+                                    </div>
+                                    <img src="/assets/ic-chevron-right.svg" alt="icon">
+                                </div>
+ -->
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TICKER  -->
+
+                            <div style="margin-top: 80px"> 
+                            <script defer src="https://www.livecoinwatch.com/static/lcw-widget.js"></script>
+                            <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#000000"
+                                lcw-marquee-1="movers" lcw-marquee-2="none" lcw-marquee-items="20"></div>
+                            </div>
+
+                    </div>
+
+                </div>
+                </section>
+
+                </a>
+
+
+
+                <%- include('./includes/scripts.ejs') %>
+                    <script>
+                        $('.payment-other').click(function () {
+                            $('html, body').animate({
+                                scrollTop: $("#others").offset().top
+                            }, 9000);
+                        });
+
+
+
+
+
+                        $(function () {
+                            Wallet.checkAllowance();
+                            let value, result, percentage, amountRange, progress, type, typeTemp;
+                            value = 0;
+                            percentage = document.getElementById('percentage-amount');
+                            amountRange = document.getElementById("amountRange");
+                            progress = document.getElementById("progress");
+
+                            let charity_id = document.getElementById('charity_id').innerText;
+
+                            $('.btn-donate-modal').click(() => {
+                                let amount = document.getElementById('amountRange').value;
+                                let address = document.getElementById('charity-address').value;
+                                let donor_name = document.getElementById('donor_name').value;
+                                let donor_name_field = document.getElementById('donor_name');
+                                let donor_email = document.getElementById('donor_email').value;
+                                let donor_email_field = document.getElementById('donor_email');
+
+                                function validateEmail(email) {
+                                    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                    return re.test(email);
+                                }
+
+                                if (donor_name.length > 0 && validateEmail(donor_email)) {
+                                    Wallet.swap(address, amount.toString(), type, donor_name, donor_email, charity_id);
+                                } else {
+                                    alert('please fill name and email address correctly.');
+
+                                    if (donor_name.length < 1) {
+                                        donor_name_field.classList.add('has-error');
+                                    } else {
+                                        donor_name_field.classList.remove('has-error');
+                                    }
+
+                                    if (!validateEmail(donor_email)) {
+                                        donor_email_field.classList.add('has-error');
+                                    } else {
+                                        donor_email_field.classList.remove('has-error');
+                                    }
+                                }
+                            });
+
+                            $('#button-click-approve').click(() => {
+                                Wallet.reqApprove(type);
+                            });
+
+                            $('.payment-method').click(function () {
+                                type = $(this).attr('data-type');
+                                Wallet.checkAllowance(type);
+                                let donor_address = $('.your-address')[0].innerText;
+                                Wallet.getHistory(donor_address, type, charity_id);
+                                Wallet.getBalance(donor_address, type);
+                                value = 0;
+                                progress.style.width = value + "%";
+                                percentage.innerText = value;
+                                amountRange.value = value;
+                                document.getElementById('usd-price-conversion').innerText = '0';
+
+                                if (type !== 'mad') {
+                                    $('.balance-bnb').show();
+                                    $('.balance-token').hide();
+
+                                }
+                                if (type !== 'bnb' && type !== 'mad') {
+                                    $('.balance-token').show();
+                                    $('.balance-bnb').hide();
+
+                                }
+                                $('#modalPaymentBNB').modal('show');
+                            });
+
+                            const calcPrice = async () => {
+                                let convert;
+                                if (type === 'mad') {
+                                    let convert_curr = await Wallet.getPriceMAD();
+                                    convert = convert_curr.MAD_BUSD;
+                                    console.log("-_-_%%%%%%%%%%%%%%%%%%%%%-_")
+                                    console.log(convert)
+                                } else {
+                                    convert = await Wallet.getPriceBNB(type, true);
+                                }
+                                if (type === 'eth') {
+                                    convert = await Wallet.getPriceETH('eth', true);
+                                    let Konvert_curr = await Wallet.getPriceMAD();
+
+                                    let cunt = Konvert_curr.BUSD_MAD;
+                                    console.log("-_-_-_")
+
+
+                                    console.log(cunt)
+                                    console.log("-_-_-_")
+                                    console.log(convert)
+
+                                }
+
+                                console.log(`price ${type} : $${convert}`);
+                                let totalConvert = (convert * amountRange.value).toFixed(3);
+                                document.getElementById('usd-price-conversion').innerText = `$ ${totalConvert}`;
+                                console.log(totalConvert)
+
+                            }
+
+                            $('#amountRange').keyup(async () => {
+                                await calcPrice();
+                            });
+
+                            $('.btn-plus-amount').click(function () {
+                                if (type !== 'bnb') {
+                                    typeTemp = 'token'
+                                } else {
+                                    typeTemp = 'bnb'
+                                }
+                                increase(typeTemp);
+                                calcPrice();
+                            })
+
+                            $('.btn-minus-amount').click(function () {
+                                if (type !== 'bnb') {
+                                    typeTemp = 'token'
+                                } else {
+                                    typeTemp = 'bnb'
+                                }
+                                decrease(typeTemp);
+                                calcPrice();
+                            })
+
+                            $('.btn-max-amount').click(function () {
+                                if (type !== 'bnb') {
+                                    typeTemp = 'token'
+                                } else {
+                                    typeTemp = 'bnb'
+                                }
+                                maxAmount(typeTemp);
+                                calcPrice();
+                            })
+
+                            function increase(type) {
+                                let amount = document.getElementById(`amount-balance-${type}`);
+                                value = value + 25;
+                                if (value >= 100) value = 100;
+                                percentage.innerText = value;
+                                result = amount.textContent * (value / 100);
+                                amountRange.value = result;
+                                progress.style.width = value + "%";
+                            }
+
+                            function decrease(type) {
+                                let amount = document.getElementById(`amount-balance-${type}`);
+                                value = value - 25;
+                                if (value <= 0) value = 0;
+                                percentage.innerText = value;
+                                result = amount.textContent * (value / 100);
+                                amountRange.value = result;
+                                progress.style.width = value + "%";
+                            }
+
+                            function maxAmount(type) {
+                                let amount = document.getElementById(`amount-balance-${type}`);
+                                value = 100;
+                                if (value >= 100) value = 100;
+                                percentage.innerText = value;
+                                result = amount.textContent * (value / 100);
+                                amountRange.value = result;
+                                progress.style.width = value + "%";
+                            }
+                        });
+                    </script>
+    </body>
+
+</html>
